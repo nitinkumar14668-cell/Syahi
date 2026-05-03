@@ -7,6 +7,7 @@ export default function App() {
   const [topic, setTopic] = useState('');
   const [language, setLanguage] = useState('Hinglish');
   const [vibe, setVibe] = useState('Sufi / Soulful');
+  const [selectedInspirations, setSelectedInspirations] = useState<string[]>(['The Local Train', 'Official Banjaare', 'Anuv Jain']);
   const [loading, setLoading] = useState(false);
   const [lyrics, setLyrics] = useState('');
   const [copied, setCopied] = useState(false);
@@ -19,6 +20,13 @@ export default function App() {
     'Desi Hip-Hop / Rap', 
     'Folk / Traditional'
   ];
+  const allInspirations = ['The Local Train', 'Official Banjaare', 'Anuv Jain', 'Prateek Kuhad', 'When Chai Met Toast', 'Bayaan', 'Ali Sethi'];
+
+  const toggleInspiration = (artist: string) => {
+    setSelectedInspirations(prev => 
+      prev.includes(artist) ? prev.filter(a => a !== artist) : [...prev, artist]
+    );
+  };
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +37,7 @@ export default function App() {
     setCopied(false);
     
     try {
-      const result = await generateLyrics(topic, language, vibe);
+      const result = await generateLyrics(topic, language, vibe, selectedInspirations);
       setLyrics(result || 'Apologies, the pen ran dry. Please try again.');
     } catch (err) {
       console.error(err);
@@ -102,6 +110,29 @@ export default function App() {
                 {languages.map(l => <option key={l} value={l} className="bg-ink-800 text-white">{l}</option>)}
               </select>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none border-l border-b border-white/50 w-2.5 h-2.5 -rotate-45" />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <label className="text-sm font-medium text-white/70">Inspirations (Optional)</label>
+            <div className="flex flex-wrap gap-2">
+              {allInspirations.map((artist) => {
+                const isSelected = selectedInspirations.includes(artist);
+                return (
+                  <button
+                    key={artist}
+                    type="button"
+                    onClick={() => toggleInspiration(artist)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer transition-all border ${
+                      isSelected 
+                        ? 'bg-white/20 border-white/30 text-white' 
+                        : 'bg-transparent border-white/10 text-white/50 hover:bg-white/5'
+                    }`}
+                  >
+                    {artist}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
