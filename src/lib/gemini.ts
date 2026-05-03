@@ -11,7 +11,7 @@ Vibe / Style: ${vibe}
 
 Instructions:
 1. The writing MUST NOT sound like generic AI. Avoid basic ABAB rhymes or clichéd phrases.
-2. Channel the depth and rawness of indie artists like "Official Banjaare" (e.g., their song 'Bairan') or poetic tracks titled "Syahi" (Ink).
+2. Channel the depth and rawness of indie artists like "The Local Train", "Anuv Jain", "Official Banjaare" (e.g., their song 'Bairan'), or poetic tracks titled "Syahi" (Ink).
 3. Use rich, evocative metaphors (like ink, fate, wanderer, restless nights, raw heartbreak, or profound love).
 4. Structure the song properly and INCLUDE explicit square bracket markers (like [Verse 1], [Chorus], [Verse 2], [Bridge], [Outro]) before each section. Let the flow be natural and human.
 5. If the language is Hindi or Hinglish, infuse it with slight Urdu/Sufi vocabulary (like 'muntazir', 'fitoor', 'ranjish', 'syahi', 'bairan') where it fits naturally.
